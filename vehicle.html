@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Vehicle Utilization</title>
+
+	
+<link rel="stylesheet" href="http://code.jquery.com/mobile/latest/jquery.mobile.css" />
+	<link type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" rel="stylesheet" /> 
+	<link type="text/css" href="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.css" rel="stylesheet" /> 
+	
+	
+	
+	
+	<!-- NOTE: Script load order is significant! -->
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script> 
+	<script type="text/javascript" src="http://code.jquery.com/mobile/latest/jquery.mobile.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.datebox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.flipbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.durationbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.durationflipbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.slidebox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.customflip.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.custombox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i18n/jquery.mobile.datebox.i18n.en_US.utf8.js"></script>
+	
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.js"></script>
+	
+	<script type="text/javascript" src="http://dev.jtsage.com/gpretty/prettify.js"></script>
+	<link type="text/css" href="http://dev.jtsage.com/gpretty/prettify.css" rel="stylesheet" />
+	<script language="JavaScript" type="text/javascript" src="js/javascript.js"></script>
+	<script type="text/javascript">
+		$('div').live('pagecreate', function() {
+			prettyPrint();
+		});
+	</script>			
+	
+	<style type="text/css"> 
+	
+	
+	table.datasheet {
+	width:100%;
+}
+.datasheet th {
+	padding:3px;
+	background-color:#ddd;
+	border-top:0px solid #F4F4F4;
+	border-left:0px solid #F4F4F4;
+	border-right:0px solid #F4F4F4;
+	border-bottom:0px solid #F4F4F4;
+	color:#003;
+	font-size:.9em;
+	font-weight:bold;
+}
+.datasheet th {
+	text-align:left;
+}
+.datasheet tr {
+	vertical-align:top;
+}
+.datasheet td {
+	padding:0px;
+	border-right:0px solid #F4F4F4;
+	border-bottom:0px solid #F4F4F4;
+	background-color:#fff;
+	font-size:.9em;
+	height:30px;
+}
+.datasheet td input {
+	border:0px none;
+	width:100%;
+	height:100%;
+	//width:90%;
+	//height:90%;
+}
+    table {
+    color: black;
+    background: #fff;
+    
+    font: bold 17px helvetica;
+    padding: 0;
+    margin-top:10px;
+    width: 100%;
+    -webkit-border-radius: 8px;
+}
+     
+table tr td {
+     margin: 0px;
+    
+    border: 0px solid #F4F4F4 ;
+    text-align: left;
+    
+    
+    padding: 10px 10px 10px 10px;
+    background-image: -webkit-linear-gradient(top, #F4F4F4 , #F4F4F4 );
+}
+         
+table tr td:last-child {
+    border-right: none;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table.table1  {
+       margin: 0px;
+    
+    border: 0px solid #F4F4F4 ;
+    text-align: left;
+}
+
+table.table1 td {
+    margin: 0px;
+    
+    border: 0px solid #F4F4F4 ;
+    text-align: left;
+
+    
+    
+    padding: 10px 10px 10px 10px;
+    background-image: -webkit-linear-gradient(top, #F4F4F4 , #F4F4F4 );
+  }
+
+table.table1 tr {
+    margin: 0px;
+    
+    border: 0px solid #F4F4F4 ;
+    text-align: left;
+    
+    
+    padding: 10px 10px 10px 10px;
+    background-image: -webkit-linear-gradient(top, #F4F4F4 , #F4F4F4 );
+  }  
+  
+  
+</style> 
+	
+	</head>
+	<body>
+
+
+		
+		
+		
+			
+		<div data-role="page" id="vehicle">
+        
+                 <div data-role="header">
+                    <h1><center>Vechile - Utilization</center></H1>
+		<a href="index.html" target = "mainframe" data-rel="Back" data-icon="back" data-role="button" data-inline="true" class="ui-btn-left">Back</a>
+			      </div><!-- /header -->
+			      
+                       
+					   <table cellpadding="0" cellspacing="2" class = "datasheet">
+					    
+					   <tr>
+					    <td>  <label for="Employee id1">Vehicle ID</label></td>
+					    <td><input type="text" name="v1" value=""id="vid1" data-mini="true" style="border: none"/></td>
+					   <td><input type="text" name="v2" value=""id="vid2" data-mini="true" style="border: none"/></td>
+					   <td><input type="text" name="v3" value=""id="vid3" data-mini="true" style="border: none"/></td></tr>
+					</table>   
+					   <table cellpadding="0" cellspacing="0">
+					   <tr><td><strong>VEHICLE 1 HOURS</strong></td>
+					   <td><strong>VEHICLE 2 HOURS</strong></td>     
+					   <td><strong>VEHICLE 3 HOURS</strong></td></tr>
+					   
+					   <tr><td><input type="text" name="v11" id="v11" value=""data-mini="true" style="border: none"/></td>
+					   <td><input type="text" name="v21" id="v21" value=""data-mini="true" style="border: none"/></td>
+					   <td><input type="text" name="v31" id="v31" value=""data-mini="true" style="border: none"/></td></tr>
+					   
+					   <tr><td><input type="text" name="v12" id="v12" value=""data-mini="true" style="border: none"/></td>
+					   <td><input type="text" name="v22" id="v22" value=""data-mini="true" style="border: none"/></td>
+					   <td><input type="text" name="v32" id="v32" value=""data-mini="true" style="border: none"/></td></tr>
+					   
+					   <tr><td><input type="text" name="v13" id="v13" value=""data-mini="true" style="border: none"/></td>
+					   <td><input type="text" name="v23" id="v23" value=""data-mini="true" style="border: none"/></td>
+					   <td><input type="text" name="v33" id="v33" value=""data-mini="true" style="border: none"/></td></tr>
+					   
+					   <tr><td><input type="text" name="v14" value=""id="v14" data-mini="true" style="border: none"/></td>
+					   <td><input type="text" name="v24" value=""id="v24" data-mini="true" style="border: none"/></td>
+					   <td><input type="text" name="v34" value=""id="v34" data-mini="true" style="border: none"/></td></tr>
+					   
+					   <tr><td><input type="text" name="v15" value=""id="v15" data-mini="true" style="border: none"/></td>
+					   <td><input type="text" name="v25" value=""id="v25" data-mini="true" style="border: none"/></td>
+					   <td><input type="text" name="v35" value=""id="v35" data-mini="true" style="border: none"/></td></tr>
+					   
+					   <tr><td><input type="text" name="v16" value=""id="v16" data-mini="true" style="border: none"/></td>
+					   <td><input type="text" name="v26" value=""id="v26" data-mini="true" style="border: none"/></td>
+					   <td><input type="text" name="v36" value=""id="v36" data-mini="true" style="border: none"/></td></tr>
+					   
+					   
+                  </table>
+					  
+					   
+					   
+					   	
+						<TABLE>
+						<TR>
+						<TD>
+					   <a href="" target="mainframe" data-role="button"   data-iconpos="right" id="save2" class= "ui-btn-active" >Save</a></TD>
+					   <TD>
+					    <a href="index.html" target="mainframe"  data-icon="arrow-r" data-role="button" id="cancel2" data-iconpos="right" class= "ui-btn-active" >Cancel</a>
+						</TD>
+					  </TR>
+					  </TABLE>
+				
+		            
+		  
+		</div><!-- /page -->
+		
+
+	</body>
+	</html>
+	
+	

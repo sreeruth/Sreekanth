@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TIME SHEET</title>
+
+	
+<link rel="stylesheet" href="http://code.jquery.com/mobile/latest/jquery.mobile.css" />
+	<link type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" rel="stylesheet" /> 
+	<link type="text/css" href="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.css" rel="stylesheet" /> 
+	
+	
+	
+	
+	<!-- NOTE: Script load order is significant! -->
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script> 
+	<script type="text/javascript" src="http://code.jquery.com/mobile/latest/jquery.mobile.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.datebox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.flipbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.durationbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.durationflipbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.slidebox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.customflip.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.custombox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i18n/jquery.mobile.datebox.i18n.en_US.utf8.js"></script>
+	
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.js"></script>
+	
+	<script type="text/javascript" src="http://dev.jtsage.com/gpretty/prettify.js"></script>
+	<link type="text/css" href="http://dev.jtsage.com/gpretty/prettify.css" rel="stylesheet" />
+	<script language="JavaScript" type="text/javascript" src="js/javascript.js"></script>
+	<script type="text/javascript">
+		$('div').live('pagecreate', function() {
+			prettyPrint();
+		});
+		
+		
+		
+	</script>			
+	
+	<style type="text/css"> 
+    table {
+    color: black;
+    background: #fff;
+    
+    font: bold 17px helvetica;
+    padding: 0;
+    margin-top:10px;
+    width: 100%;
+    -webkit-border-radius: 8px;
+}
+     
+table tr td {
+     margin: 0px;
+    height:10px;
+    border: 0px solid #F4F4F4 ;
+    text-align: left;
+    
+    
+    padding: 10px 10px 10px 10px;
+    background-image: -webkit-linear-gradient(top, #F4F4F4 , #F4F4F4 );
+}
+         
+table tr td:last-child {
+    border-right: none;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table.table1  {
+       margin: 0px;
+    
+    border: 0px solid #F4F4F4 ;
+    text-align: left;
+}
+
+table.table1 td {
+    margin: 0px;
+    height:10px;
+    border: 0px solid #F4F4F4 ;
+    text-align: left;
+
+    
+    
+    padding: 10px 10px 10px 10px;
+    background-image: -webkit-linear-gradient(top, #F4F4F4 , #F4F4F4 );
+  }
+
+table.table1 tr {
+    margin: 0px;
+    height:10px;
+    border: 0px solid #F4F4F4 ;
+    text-align: left;
+    
+    
+    padding: 10px 10px 10px 10px;
+    background-image: -webkit-linear-gradient(top, #F4F4F4 , #F4F4F4 );
+  }  
+  
+  
+  table.datasheet {
+	width:100%;
+}
+.datasheet th {
+	padding:3px;
+	background-color:#ddd;
+	border-top:1px solid #eef;
+	border-left:1px solid #eef;
+	border-right:1px solid #999;
+	border-bottom:1px solid #999;
+	color:#003;
+	font-size:.9em;
+	font-weight:bold;
+}
+.datasheet th {
+	text-align:left;
+}
+.datasheet tr {
+	vertical-align:top;
+}
+.datasheet td {
+	padding:0px;
+	border-right:1px solid #999;
+	border-bottom:1px solid #999;
+	background-color:#F4F4F4;
+	font-size:.9em;
+}
+.datasheet td input {
+	border:0px none;
+	width:100%;
+	height:100%;
+	//width:90%;
+	//height:90%;
+}
+                                                                                                          
+  
+</style> 
+	
+	
+	
+	
+	</head>
+	<body>
+
+
+				      <div data-role="fieldcontain">
+					   <a href="#timesheet" data-icon="arrow-r" data-role="button" data-inline="true"  data-iconpos="right" class="ui-btn-left">Save</a>
+					    <a href="#index" data-icon="arrow-r" data-role="button" data-inline="true" data-iconpos="right" class="ui-btn-left">Cancel</a>
+					  
+				</div>
+
+		
+	<div data-role="page" id="leftframe">
+        
+                 <div data-role="header">
+                    <h1><center>Time Sheet</center></H1>
+		<a href="timesheet.html" target="mainframe" data-rel="Back" data-icon="" data-role="button" data-inline="true" class="ui-btn-right">ADD Hours</a>
+		
+			      </div><!-- /header -->
+			      
+					   
+			
+			<table class = "datasheet" cellpadding="0" cellspacing="0" id ="tableId" >
+					   
+		
+    
+					   <tr><td>PAY CODE</td>
+					   <td>HOURS/$</td>     
+					   <td>CONSTR/WORK ORDER #</td>
+					   <td>ACCOUNT #</td>
+					   <td>FUNCTION D/O(7XXX)</td>
+					   </tr>
+					   <tr id = "tr1">
+					   <td id="td11"></td>
+					   <td id="td12"></td>
+					   <td id="td13"></td>
+					   <td id="td14"></td>
+					   <td id="td15"></td>
+					   </tr>
+					   <tr id = "tr2">
+					   <td id="td21"></td>
+					   <td id="td22"></td>
+					   <td id="td23"></td>
+					   <td id="td24"></td>
+					   <td id="td25"></td>
+					   </tr>
+					   <tr id = "tr3">
+					   <td id="td31"></td>
+					   <td id="td32"></td>
+					   <td id="td33"></td>
+					   <td id="td34"></td>
+					   <td id="td35"></td>
+					   </tr>
+					   <tr id = "tr4">
+					   <td id="td41"></td>
+					   <td id="td42"></td>
+					   <td id="td43"></td>
+					   <td id="td44"></td>
+					   <td id="td45"></td>
+					   </tr>
+					   <tr id = "tr5">
+					   <td id="td51"></td>
+					   <td id="td52"></td>
+					   <td id="td53"></td>
+					   <td id="td54"></td>
+					   <td id="td55"></td>
+					   </tr>
+					<tr id = "tr6">
+					   <td id="td61"></td>
+					   <td id="td62"></td>
+					   <td id="td63"></td>
+					   <td id="td64"></td>
+					   <td id="td65"></td>
+					   </tr>
+		
+					
+				   
+					   </table>
+                     
+		
+					                <div data-role="fieldcontain">
+						               <div class="ui-grid-solo">
+									            <div class="ui-block-a">
+										               <label for="textarea">Crew Remarks:</label>
+									             </div> <!--ui-block-a-->
+								        </div> <!--ui-grid-solo-->
+								        <div class="ui-grid-solo">
+									            <div class="ui-block-a">
+										                <textarea name="remarks" id="remarks"> </textarea>
+									            </div><!--ui-block-a-->
+									    </div> <!--ui-grid-solo-->
+										</div> 
+    </div><!-- /page -->
+    
+	
+	</body>
+	</html>
+	
+	

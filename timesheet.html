@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TIME SHEET</title>
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/latest/jquery.mobile.css" />
+	<link type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" rel="stylesheet" /> 
+	<link type="text/css" href="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.css" rel="stylesheet" /> 
+	
+	
+
+	
+	
+	<!-- NOTE: Script load order is significant! -->
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script> 
+	<script type="text/javascript" src="http://code.jquery.com/mobile/latest/jquery.mobile.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.datebox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.flipbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.durationbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.durationflipbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.slidebox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.customflip.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.custombox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i18n/jquery.mobile.datebox.i18n.en_US.utf8.js"></script>
+	
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.js"></script>
+	
+	<script type="text/javascript" src="http://dev.jtsage.com/gpretty/prettify.js"></script>
+	<link type="text/css" href="http://dev.jtsage.com/gpretty/prettify.css" rel="stylesheet" />
+	<script language="JavaScript" type="text/javascript" src="js/javascript.js"></script>
+	<style type="text/css"> 
+    
+	.ui-input-text{
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.select{
+    border: none !important;
+	
+    box-shadow: none !important;
+	
+	
+}
+	
+	
+	
+	table {
+    color: black;
+    background: #fff;
+    
+    font: bold 17px helvetica;
+    padding: 0;
+    margin-top:10px;
+    width: 100%;
+    -webkit-border-radius: 8px;
+}
+     
+table tr td {
+     margin: 0px;
+    height:10px;
+    border: 0px solid #F4F4F4 ;
+    text-align: left;
+    
+    
+    padding: 10px 10px 10px 10px;
+    background-image: -webkit-linear-gradient(top, #F4F4F4 , #F4F4F4 );
+}
+         
+table tr td:last-child {
+    border-right: none;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table.table1  {
+       margin: 0px;
+    
+    border: 0px solid #F4F4F4 ;
+    text-align: left;
+}
+
+table.table1 td {
+    margin: 0px;
+    height:10px;
+    border: 0px solid #F4F4F4 ;
+    text-align: left;
+
+    
+    
+    padding: 10px 10px 10px 10px;
+    background-image: -webkit-linear-gradient(top, #F4F4F4 , #F4F4F4 );
+  }
+
+table.table1 tr {
+    margin: 0px;
+    height:10px;
+    border: 0px solid #F4F4F4 ;
+    text-align: left;
+    
+    
+    padding: 10px 10px 10px 10px;
+    background-image: -webkit-linear-gradient(top, #F4F4F4 , #F4F4F4 );
+  }  
+  
+  
+  table.datasheet {
+	width:100%;
+}
+.datasheet th {
+	padding:3px;
+	background-color:#ddd;
+	border-top:1px solid #eef;
+	border-left:1px solid #eef;
+	border-right:1px solid #999;
+	border-bottom:1px solid #999;
+	color:#003;
+	font-size:.9em;
+	font-weight:bold;
+}
+.datasheet th {
+	text-align:left;
+}
+.datasheet tr {
+	vertical-align:top;
+}
+.datasheet td {
+	padding:0px;
+	border-right:1px solid #999;
+	border-bottom:1px solid #999;
+	background-color:#F4F4F4;
+	font-size:.9em;
+	height:30px;
+}
+.datasheet td input {
+	border:0px none;
+	width:100%;
+	height:100%;
+	//width:90%;
+	//height:90%;
+}
+  
+    table.local {
+	width:100%;
+}
+.local th {
+	padding:3px;
+	background-color:#ddd;
+	border-top:1px solid #eef;
+	border-left:1px solid #eef;
+	border-right:1px solid #999;
+	border-bottom:1px solid #999;
+	color:#003;
+	font-size:.9em;
+	font-weight:bold;
+}
+.local th {
+	text-align:left;
+}
+.local tr {
+	vertical-align:top;
+}
+.local td {
+	padding:0px;
+	border-right:1px solid #999;
+	border-bottom:1px solid #999;
+	background-color:#F4F4F4;
+	font-size:.9em;
+	height:20px;
+	width:100px;
+}
+.local td input {
+	border:0px none;
+	width:100%;
+	height:100%;
+	//width:90%;
+	//height:90%;
+}
+
+  
+</style>
+
+
+	
+		<script language="javascript" type="text/javascript">
+		
+		/*
+		
+		
+		paycode1
+hourn1
+premcode1
+premcode2
+workorder1
+account1
+vchileid1
+function1
+temp1
+overriderate1
+using1
+statecode1	
+
+*/
+     function DropDownTextToBox(objDropdown, strTextboxId) {
+        document.getElementById(strTextboxId).value = objDropdown.options[objDropdown.selectedIndex].value;
+        DropDownIndexClear(objDropdown.id);
+        document.getElementById(strTextboxId).focus();
+    }
+    function DropDownIndexClear(strDropdownId) {
+        if (document.getElementById(strDropdownId) != null) {
+            document.getElementById(strDropdownId).selectedIndex = -1;
+        }
+    }
+
+
+
+
+
+
+
+	
+	</script> 
+	
+	</head>
+	<body>
+
+
+			
+
+		
+	<div data-role="page" id="timesheet">
+        
+                 <div data-role="header">
+                    <h1><center>Time Sheet</center></H1>
+		<a href="index.html" target="mainframe" data-rel="Back" data-icon="back" data-role="button"  class="ui-btn-left">Back</a>
+		
+			      </div><!-- /header -->
+			
+			<table class = "datasheet" cellpadding="0" cellspacing="0">
+					   
+			
+    
+					   <tr><td>PAY CODE</td>
+					   <td>HOURS/$</td>     
+					   <td>PREM CODE(S)</td>
+					   <td>CONSTR/WORK ORDER #</td>
+					   <td>ACCOUNT #</td>
+					   <td>VEHICLE #</td>
+					   <td>FUNCTION D/O(7XXX)</td>
+					   <td>TEMP OCCUP</td>
+					   <td>OVERRIDE RATE</td>
+					   <td>USING C/C</td>
+					   <td>STATE CODE</td></tr>
+					   
+					<tr>		<td >
+					
+				<select  data-icon="noicon" name="paycoden1" id="paycode1" data-native-menu="false"  data-corners="false"  >
+					
+				
+<option value="" ></option>
+		<option value="R">Straight Time</option>
+		<option value="T">Time and a Half</option>
+		<option value="D">Double Time</option>
+		<option value="PT">Pre-arranged Time/Half</option>
+		<option value="PD">Pre-arranged Double Time</option>
+		<option value="AD">Pre-arranged Travel Time</option>
+		<option value="CD">Call-Out Double Time</option>
+		<option value="TD">Call-Out Travel Time</option>
+		<option value="ED">Early Start</option>
+		<option value="NZ">Weather N2/N1</option>
+		<option value="NV">Vehicle Breakdown (NT / ND)</option>
+		<option value="LT">Lunch Not Taken</option>
+		<option value="N">Delayed Lunch</option>
+		<option value="N7">Commuting Time</option>
+		<option value="V">Vacation</option>
+		<option value="S">Sick</option>
+		<option value="S1">Family Sick</option>
+		<option value="H4">Floating Holiday</option>
+		<option value="*">Account # Not Needed</option>
+		
+</select>
+			
+</td>
+
+
+					   <td><input type="text" name="hourn1" id="hour1" value="" data-mini="true" style="border: none"  /></td>
+					   
+					   
+					   <td >
+					   <table class="local">
+					   <td><select  data-icon="noicon" name="premcode1" id="premcode1" data-native-menu="false"  data-corners="false"  >
+<option value="" ></option>
+			<option value="1">Shift Start After 12PM</option>
+		<option value="2">Shift Start After 8PM</option>
+		<option value="3">Painting / Ladder</option>
+		<option value="5">Lead cable Splicing</option>
+		<option value="6">Cable Taping>6000v</option>
+		<option value="7">CNG Const/Repair</option>
+		
+</select>
+</td>
+
+
+
+
+					   <td><select  data-icon="noicon" name="premcoden2" id="premcode2" data-native-menu="false"  data-corners="false"  >
+<option value="" ></option>
+		<option value="1">Shift Start After 12PM</option>
+		<option value="2">Shift Start After 8PM</option>
+		<option value="3">Painting / Ladder</option>
+		<option value="5">Lead cable Splicing</option>
+		<option value="6">Cable Taping>6000v</option>
+		<option value="7">CNG Const/Repair</option>
+		
+</select>
+</td>
+					   </table>
+					   </td>
+					   
+					   <td><input type="text" name="workordern1" id="workorder1" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="accountn1" id="account1" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="vehicleidn1" id="vchileid1" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="functionn1" id="function1" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="tempn1" id="temp1" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="overrideraten1" id="overriderate1" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="usingn1" id="using1" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="statecoden1" id="statecode1" value="" data-mini="true" style="border: none"  /></td></tr>
+					   
+					<tr><td><select  data-icon="noicon" name="paycoden2" id="paycode2" data-native-menu="false"  data-corners="false"   >
+					
+				
+<option value="" ></option>
+		<option value="R">Straight Time</option>
+		<option value="T">Time and a Half</option>
+		<option value="D">Double Time</option>
+		<option value="PT">Pre-arranged Time/Half</option>
+		<option value="PD">Pre-arranged Double Time</option>
+		<option value="AD">Pre-arranged Travel Time</option>
+		<option value="CD">Call-Out Double Time</option>
+		<option value="TD">Call-Out Travel Time</option>
+		<option value="ED">Early Start</option>
+		<option value="NZ">Weather N2/N1</option>
+		<option value="NV">Vehicle Breakdown (NT / ND)</option>
+		<option value="LT">Lunch Not Taken</option>
+		<option value="N">Delayed Lunch</option>
+		<option value="N7">Commuting Time</option>
+		<option value="V">Vacation</option>
+		<option value="S">Sick</option>
+		<option value="S1">Family Sick</option>
+		<option value="H4">Floating Holiday</option>
+		<option value="*">Account # Not Needed</option>
+		
+</select>
+			</td>
+
+					   <td><input type="text" name="hourn2" id="hour2" value="" data-mini="true" style="border: none"  /></td>
+					   
+					   <td >
+					   <table class="local">
+					   <td  ><select  data-icon="noicon" name="premcoden3" id="premcode3" data-native-menu="false"  data-corners="false"   >
+<option value="" ></option>
+			<option value="1">Shift Start After 12PM</option>
+		<option value="2">Shift Start After 8PM</option>
+		<option value="3">Painting / Ladder</option>
+		<option value="5">Lead cable Splicing</option>
+		<option value="6">Cable Taping>6000v</option>
+		<option value="7">CNG Const/Repair</option>
+		
+</select>
+
+</td>
+
+
+
+
+					   <td><select  data-icon="noicon" name="premcoden4" id="premcode4" data-native-menu="false"  data-corners="false"   >
+<option value="" ></option>
+		<option value="1">Shift Start After 12PM</option>
+		<option value="2">Shift Start After 8PM</option>
+		<option value="3">Painting / Ladder</option>
+		<option value="5">Lead cable Splicing</option>
+		<option value="6">Cable Taping>6000v</option>
+		<option value="7">CNG Const/Repair</option>
+		
+</select>
+</td>
+					   </table>
+					   </td>
+					   <td><input type="text" name="workordern2" id="workorder2" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="accountn2" id="account2" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="vehicleidn2" id="vehicleid2" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="functionn2" id="function2" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="tempn2" id="temp2" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="overrideraten2" id="overriderate2" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="usingn2" id="using2" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="statecoden2" id="statecode2" value="" data-mini="true" style="border: none"  /></td></tr>
+				
+
+				<tr><td ><select  data-icon="noicon" name="paycoden3" id="paycode3" data-native-menu="false"  data-corners="false"   >
+					
+				
+<option value="" ></option>
+		<option value="R">Straight Time</option>
+		<option value="T">Time and a Half</option>
+		<option value="D">Double Time</option>
+		<option value="PT">Pre-arranged Time/Half</option>
+		<option value="PD">Pre-arranged Double Time</option>
+		<option value="AD">Pre-arranged Travel Time</option>
+		<option value="CD">Call-Out Double Time</option>
+		<option value="TD">Call-Out Travel Time</option>
+		<option value="ED">Early Start</option>
+		<option value="NZ">Weather N2/N1</option>
+		<option value="NV">Vehicle Breakdown (NT / ND)</option>
+		<option value="LT">Lunch Not Taken</option>
+		<option value="N">Delayed Lunch</option>
+		<option value="N7">Commuting Time</option>
+		<option value="V">Vacation</option>
+		<option value="S">Sick</option>
+		<option value="S1">Family Sick</option>
+		<option value="H4">Floating Holiday</option>
+		<option value="*">Account # Not Needed</option>
+		
+</select>
+			</td>
+					   
+					   <td><input type="text" name="hourn3" id="hour3" value="" data-mini="true" style="border: none"  /></td>
+					   
+					   <td >
+					   <table class="local">
+					   <td  ><select  data-icon="noicon" name="premcoden5" id="premcode5" data-native-menu="false"  data-corners="false"   >
+<option value="" ></option>
+			<option value="1">Shift Start After 12PM</option>
+		<option value="2">Shift Start After 8PM</option>
+		<option value="3">Painting / Ladder</option>
+		<option value="5">Lead cable Splicing</option>
+		<option value="6">Cable Taping>6000v</option>
+		<option value="7">CNG Const/Repair</option>
+		
+		
+</select>
+</td>
+
+
+
+
+					   
+					   
+					   <td ><select  data-icon="noicon" name="premcoden6" id="premcode6" data-native-menu="false"  data-corners="false"   >
+<option value="" ></option>
+		<option value="1">Shift Start After 12PM</option>
+		<option value="2">Shift Start After 8PM</option>
+		<option value="3">Painting / Ladder</option>
+		<option value="5">Lead cable Splicing</option>
+		<option value="6">Cable Taping>6000v</option>
+		<option value="7">CNG Const/Repair</option>
+		
+</select>
+
+</td>
+					   </table>
+					   </td>
+					   <td><input type="text" name="workordern3" id="workorder3" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="accountn3" id="account3" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="vehicleidn3" id="vehicleid3" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="functionn3" id="function3" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="tempn3" id="temp3" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="overrideraten3" id="overriderate3" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="usingn3" id="using3" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="statecoden3" id="statecode3" value="" data-mini="true" style="border: none"  /></td></tr>
+				  
+				  <tr><td ><select  data-icon="noicon" name="paycoden4" id="paycode4" data-native-menu="false"  data-corners="false"   >
+					
+				
+<option value="" ></option>
+		<option value="R">Straight Time</option>
+		<option value="T">Time and a Half</option>
+		<option value="D">Double Time</option>
+		<option value="PT">Pre-arranged Time/Half</option>
+		<option value="PD">Pre-arranged Double Time</option>
+		<option value="AD">Pre-arranged Travel Time</option>
+		<option value="CD">Call-Out Double Time</option>
+		<option value="TD">Call-Out Travel Time</option>
+		<option value="ED">Early Start</option>
+		<option value="NZ">Weather N2/N1</option>
+		<option value="NV">Vehicle Breakdown (NT / ND)</option>
+		<option value="LT">Lunch Not Taken</option>
+		<option value="N">Delayed Lunch</option>
+		<option value="N7">Commuting Time</option>
+		<option value="V">Vacation</option>
+		<option value="S">Sick</option>
+		<option value="S1">Family Sick</option>
+		<option value="H4">Floating Holiday</option>
+		<option value="*">Account # Not Needed</option>
+		
+</select>
+			</td>
+					   <td><input type="text" name="hourn4" id="hour4" value="" data-mini="true" style="border: none"  /></td>
+					   <td >
+					   <table class="local">
+					   <td  ><select  data-icon="noicon" name="premcoden7" id="premcode7" data-native-menu="false"   data-corners="false"   >
+<option value="" ></option>
+			<option value="1">Shift Start After 12PM</option>
+		<option value="2">Shift Start After 8PM</option>
+		<option value="3">Painting / Ladder</option>
+		<option value="5">Lead cable Splicing</option>
+		<option value="6">Cable Taping>6000v</option>
+		<option value="7">CNG Const/Repair</option>
+		
+</select>
+</td>
+
+
+
+
+					   <td><select  data-icon="noicon" name="premcoden8" id="premcode8" data-native-menu="false"  data-corners="false"  >
+<option value="" ></option>
+		<option value="1">Shift Start After 12PM</option>
+		<option value="2">Shift Start After 8PM</option>
+		<option value="3">Painting / Ladder</option>
+		<option value="5">Lead cable Splicing</option>
+		<option value="6">Cable Taping>6000v</option>
+		<option value="7">CNG Const/Repair</option>
+		
+</select>
+
+</td>
+					   </table>
+					   </td>
+					   <td><input type="text" name="workordern4" id="workorder4" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="accountn4" id="account4" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="vehicleidn4" id="vehicleid4" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="functionn4" id="function4" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="tempn4" id="temp4" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="overrideraten4" id="overriderate4" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="usingn4" id="using4" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="statecoden4" id="statecode4" value="" data-mini="true" style="border: none"  /></td></tr>
+				  
+				  <tr><td ><select  data-icon="noicon" name="paycoden5" id="paycode5" data-native-menu="false"  data-corners="false"   >
+					
+				
+<option value="" ></option>
+		<option value="R">Straight Time</option>
+		<option value="T">Time and a Half</option>
+		<option value="D">Double Time</option>
+		<option value="PT">Pre-arranged Time/Half</option>
+		<option value="PD">Pre-arranged Double Time</option>
+		<option value="AD">Pre-arranged Travel Time</option>
+		<option value="CD">Call-Out Double Time</option>
+		<option value="TD">Call-Out Travel Time</option>
+		<option value="ED">Early Start</option>
+		<option value="NZ">Weather N2/N1</option>
+		<option value="NV">Vehicle Breakdown (NT / ND)</option>
+		<option value="LT">Lunch Not Taken</option>
+		<option value="N">Delayed Lunch</option>
+		<option value="N7">Commuting Time</option>
+		<option value="V">Vacation</option>
+		<option value="S">Sick</option>
+		<option value="S1">Family Sick</option>
+		<option value="H4">Floating Holiday</option>
+		<option value="*">Account # Not Needed</option>
+		
+</select>
+			</td>
+					   <td><input type="text" name="hourn5" id="hour5" value="" data-mini="true" style="border: none"  /></td>
+					   <td >
+					   <table class="local">
+					   <td  ><select  data-icon="noicon" name="premcoden9" id="premcode9" data-native-menu="false"  data-corners="false"   >
+<option value="" ></option>
+			<option value="1">Shift Start After 12PM</option>
+		<option value="2">Shift Start After 8PM</option>
+		<option value="3">Painting / Ladder</option>
+		<option value="5">Lead cable Splicing</option>
+		<option value="6">Cable Taping>6000v</option>
+		<option value="7">CNG Const/Repair</option>
+		
+</select>
+</td>
+
+
+
+
+					   <td><select  data-icon="noicon" name="premcoden10" id="premcode10" data-native-menu="false"  data-corners="false"   >
+<option value="" ></option>
+		<option value="1">Shift Start After 12PM</option>
+		<option value="2">Shift Start After 8PM</option>
+		<option value="3">Painting / Ladder</option>
+		<option value="5">Lead cable Splicing</option>
+		<option value="6">Cable Taping>6000v</option>
+		<option value="7">CNG Const/Repair</option>
+		
+</select>
+</td>
+					   </table>
+					   </td>
+					   <td><input type="text" name="workordern5" id="workorder5" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="accountn5" id="account5" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="vehicleidn5" id="vehicleid5" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="functionn5" id="function5" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="tempn5" id="temp5" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="overrideraten5" id="overriderate5" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="usingn5" id="using5" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="statecoden5" id="statecode5" value="" data-mini="true" style="border: none"  /></td></tr>
+				  
+				  <tr><td ><select  data-icon="noicon" name="paycoden6" id="paycode6" data-native-menu="false"  data-corners="false"   >
+					
+				
+<option value="" ></option>
+		<option value="R">Straight Time</option>
+		<option value="T">Time and a Half</option>
+		<option value="D">Double Time</option>
+		<option value="PT">Pre-arranged Time/Half</option>
+		<option value="PD">Pre-arranged Double Time</option>
+		<option value="AD">Pre-arranged Travel Time</option>
+		<option value="CD">Call-Out Double Time</option>
+		<option value="TD">Call-Out Travel Time</option>
+		<option value="ED">Early Start</option>
+		<option value="NZ">Weather N2/N1</option>
+		<option value="NV">Vehicle Breakdown (NT / ND)</option>
+		<option value="LT">Lunch Not Taken</option>
+		<option value="N">Delayed Lunch</option>
+		<option value="N7">Commuting Time</option>
+		<option value="V">Vacation</option>
+		<option value="S">Sick</option>
+		<option value="S1">Family Sick</option>
+		<option value="H4">Floating Holiday</option>
+		<option value="*">Account # Not Needed</option>
+		
+</select>
+			</td>
+
+					   <td><input type="text" name="hourn6" id="hour6" value="" data-mini="true" style="border: none"  /></td>
+					   
+					   <td >
+					   <table class="local">
+					   <td  ><select  data-icon="noicon" name="premcoden11" id="premcode11" data-native-menu="false"  data-corners="false"   >
+<option value="" ></option>
+			<option value="1">Shift Start After 12PM</option>
+		<option value="2">Shift Start After 8PM</option>
+		<option value="3">Painting / Ladder</option>
+		<option value="5">Lead cable Splicing</option>
+		<option value="6">Cable Taping>6000v</option>
+		<option value="7">CNG Const/Repair</option>
+		
+</select>
+</td>
+
+
+
+
+					   <td><select  data-icon="noicon" name="premcoden12" id="premcode12" data-native-menu="false"  data-corners="false"   >
+<option value="" ></option>
+		<option value="1">Shift Start After 12PM</option>
+		<option value="2">Shift Start After 8PM</option>
+		<option value="3">Painting / Ladder</option>
+		<option value="5">Lead cable Splicing</option>
+		<option value="6">Cable Taping>6000v</option>
+		<option value="7">CNG Const/Repair</option>
+		
+</select>
+</td>
+					   </table>
+					   </td>
+					   
+					   <td><input type="text" name="workordern6" id="workorder6" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="accountn6" id="account6" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="vehicleid6" id="vehicleid6" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="functionn6" id="function6" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="tempn6" id="temp6" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="overrideraten6" id="overriderate6" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="usingn6" id="using6" value="" data-mini="true" style="border: none"  /></td>
+					   <td><input type="text" name="statecoden6" id="statecode6" value="" data-mini="true" style="border: none"  /></td></tr>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+					
+					   
+					   </table>
+        
+					
+					<TABLE>
+						<TR>
+						<TD>
+					   <a href="" target="mainframe" data-role="button"    data-iconpos="right" id="save1" class= "ui-btn-active" >Save</a>
+					   </TD>
+					   <TD>
+					    <a href="index.html" target="mainframe"  data-icon="arrow-r" data-role="button"   data-iconpos="right" class= "ui-btn-active" >Cancel</a>
+					  </TD>
+					  </Tr>
+				</TABLE>
+					
+		
+    
+	
+	</div><!-- /page -->
+    
+	
+	</body>
+	</html>
+	
+	
+	

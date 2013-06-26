@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>VEHICLE UTILIZATION</title>
+
+	
+<link rel="stylesheet" href="http://code.jquery.com/mobile/latest/jquery.mobile.css" />
+	<link type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" rel="stylesheet" /> 
+	<link type="text/css" href="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.css" rel="stylesheet" /> 
+	
+	
+	
+	
+	<!-- NOTE: Script load order is significant! -->
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script> 
+	<script type="text/javascript" src="http://code.jquery.com/mobile/latest/jquery.mobile.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.datebox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.flipbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.durationbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.durationflipbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.slidebox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.customflip.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.custombox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i18n/jquery.mobile.datebox.i18n.en_US.utf8.js"></script>
+	
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.js"></script>
+	
+	<script type="text/javascript" src="http://dev.jtsage.com/gpretty/prettify.js"></script>
+	<link type="text/css" href="http://dev.jtsage.com/gpretty/prettify.css" rel="stylesheet" />
+	
+	<script language="JavaScript" type="text/javascript" src="js/javascript.js"></script>
+	<script type="text/javascript">
+		$('div').live('pagecreate', function() {
+			prettyPrint();
+		});
+	</script>			
+	
+	<style type="text/css"> 
+    table {
+    color: black;
+    background: #fff;
+    
+    font: bold 13px helvetica;
+    padding: 0;
+    margin-top:10px;
+    width: 100%;
+    -webkit-border-radius: 8px;
+}
+     
+table tr td {
+     margin: 0px;
+    
+    border: 0px solid #F4F4F4 ;
+    text-align: left;
+    
+    
+    padding: 10px 10px 10px 10px;
+    background-image: -webkit-linear-gradient(top, #F4F4F4 , #F4F4F4 );
+}
+         
+table tr td:last-child {
+    border-right: none;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table.table1  {
+       margin: 0px;
+    
+    border: 0px solid #F4F4F4 ;
+    text-align: left;
+}
+
+table.table1 td {
+    margin: 0px;
+    
+    border: 0px solid #F4F4F4 ;
+    text-align: left;
+
+    
+    
+    padding: 10px 10px 10px 10px;
+    background-image: -webkit-linear-gradient(top, #F4F4F4 , #F4F4F4 );
+  }
+
+table.table1 tr {
+    margin: 0px;
+    
+    border: 0px solid #F4F4F4 ;
+    text-align: left;
+    
+    
+    padding: 10px 10px 10px 10px;
+    background-image: -webkit-linear-gradient(top, #F4F4F4 , #F4F4F4 );
+  }  
+
+
+table.datasheet11 {
+	width:100%;
+}
+.datasheet11 th {
+	padding:3px;
+	background-color:#ddd;
+	border-top:1px solid #eef;
+	border-left:1px solid #eef;
+	border-right:1px solid #999;
+	border-bottom:1px solid #999;
+	color:#003;
+	font-size:.9em;
+	font-weight:bold;
+}
+.datasheet11 th {
+	text-align:left;
+}
+.datasheet11 tr {
+	vertical-align:top;
+}
+.datasheet11 td {
+	padding:0px;
+	border-right:1px solid #999;
+	border-bottom:1px solid #999;
+	background-color:#F4F4F4;
+	font-size:.9em;
+}
+.datasheet11 td input {
+	border:0px none;
+	width:100%;
+	height:100%;
+	//width:90%;
+	//height:90%;
+}
+                   
+                   
+
+  
+  
+</style> 
+	
+	</head>
+	<body>
+
+
+		
+		
+			
+		<div data-role="page" id="vehicle">
+        
+                 <div data-role="header">
+                    <h1><center>Vechile - Utilization</center></H1>
+		<a href="vehicle.html" target = "mainframe"  data-role="button" data-inline="true" data-mini="true" class="ui-btn-right">ADD Hours</a>
+			      </div><!-- /header -->
+
+					   
+					   
+					   
+					   <table cellpadding="0" cellspacing="0">
+					    
+					   <tr>
+					    <td>  <label for="Employee id1">Vehicle ID</label></td>
+					    <td><input type="text" name="v1" value=""id="vid1" data-mini="true"/></td>
+					   <td><input type="text" name="v2" value=""id="vid2" data-mini="true"/></td>
+					   <td><input type="text" name="v3" value=""id="vid3" data-mini="true"/></td></tr>
+					</table>   
+				
+ 
+         <table class = "datasheet11"  id ="tableid2" >
+					   <tr>
+                       <td id ="tdd7" Width = "50px" >    </td>
+					   <td>VEHICLE 1 HOURS</td>
+					   <td>VEHICLE 2 HOURS</td>
+					   <td>VEHICLE 3 HOURS</td></tr>
+					   
+					   
+					   <tr height = "10px"  id = "trv1">
+					   <td id ="tdd1" Width = "50px" >    </td>
+					   <td    id="tdv11"></td>
+					   <td    id="tdv12"></td>
+					   <td    id="tdv13"></td>
+					   
+					   </tr>
+					   <tr height = "10px"  id = "trv2">
+					   <td id ="tdd2" Width = "50px" >    </td>
+					   <td    id="tdv21"></td>
+					   <td    id="tdv22"></td>
+					   <td    id="tdv23"></td>
+					   
+					   </tr>
+					   <tr height = "10px"  id = "trv3">
+					   <td id = "tdd3"  Width = "50px"  >    </td>
+					   <td    id="tdv31"></td>
+					   <td    id="tdv32"></td>
+					   <td    id="tdv33"></td>
+					   
+					   </tr>
+					   <tr height = "10px"  id = "trv4">
+					   <td id ="tdd4" Width = "50px" >    </td>
+					   <td    id="tdv41"></td>
+					   <td    id="tdv42"></td>
+					   <td    id="tdv43"></td>
+					   
+					   </tr>
+					   <tr height = "10px"  id = "trv5">
+					   <td id ="tdd5" Width = "50px" >    </td>
+					   <td    id="tdv51"></td>
+					   <td    id="tdv52"></td>
+					   <td    id="tdv53"></td>
+					   
+					   </tr>
+					<tr height = "10px"  id = "trv6">
+					<td id ="tdd6" Width = "50px" >    </td>
+					   <td    id="tdv61"></td>
+					   <td    id="tdv62"></td>
+					   <td    id="tdv63"></td>
+					   
+					   </tr>
+					   
+					   
+                  </table>
+					   
+		</div><!-- /page -->
+		
+
+    
+    
+	
+	</body>
+	</html>
+	
+	

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Employee Details</title>
+
+	
+<link rel="stylesheet" href="http://code.jquery.com/mobile/latest/jquery.mobile.css" />
+	<link type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" rel="stylesheet" /> 
+	<link type="text/css" href="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.css" rel="stylesheet" /> 
+	
+	
+	<!-- NOTE: Script load order is significant! -->
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script> 
+	<script type="text/javascript" src="http://code.jquery.com/mobile/latest/jquery.mobile.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.datebox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.flipbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.durationbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.durationflipbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.slidebox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.customflip.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.custombox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i18n/jquery.mobile.datebox.i18n.en_US.utf8.js"></script>
+	
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.js"></script>
+	
+	<script type="text/javascript" src="http://dev.jtsage.com/gpretty/prettify.js"></script>
+	<link type="text/css" href="http://dev.jtsage.com/gpretty/prettify.css" rel="stylesheet" />
+	<script type="text/javascript">
+		$('div').live('pagecreate', function() {
+			prettyPrint();
+		});
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+	</script>			
+	
+	<style type="text/css"> 
+    table {
+    color: black;
+    background: #fff;
+    
+    font: bold 17px helvetica;
+    padding: 0;
+    margin-top:10px;
+    width: 100%;
+    -webkit-border-radius: 8px;
+}
+     
+table tr td {
+     margin: 0px;
+    height:10px;
+    border: 0px solid #F4F4F4 ;
+    text-align: left;
+    
+    
+    padding: 10px 10px 10px 10px;
+    background-image: -webkit-linear-gradient(top, #F4F4F4 , #F4F4F4 );
+}
+         
+table tr td:last-child {
+    border-right: none;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table.table1  {
+       margin: 0px;
+    
+    border: 0px solid #F4F4F4 ;
+    text-align: left;
+}
+
+table.table1 td {
+    margin: 0px;
+    height:10px;
+    border: 0px solid #F4F4F4 ;
+    text-align: left;
+
+    
+    
+    padding: 10px 10px 10px 10px;
+    background-image: -webkit-linear-gradient(top, #F4F4F4 , #F4F4F4 );
+  }
+
+table.table1 tr {
+    margin: 0px;
+    height:10px;
+    border: 0px solid #F4F4F4 ;
+    text-align: left;
+    
+    
+    padding: 10px 10px 10px 10px;
+    background-image: -webkit-linear-gradient(top, #F4F4F4 , #F4F4F4 );
+  }  
+  
+  
+</style> 
+	
+	</head>
+	<body>
+		
+		
+		
+		<!-- Start of Employee page -->
+		 <div data-role="page" id="Employee">
+        
+                 <div data-role="header">
+                    <center>EMPLOYEE DETAILS</center>
+		
+			      </div><!-- /header -->
+			      
+				      			  <table class="table2" >					  
+					  <tr >
+					  <td height ="10px" width = "100px"><label for="Employee id1">Employee   ID</label></td>
+							     
+                            <td><input type="text" name="empid" id="empid" value=""/></td>
+							
+							   
+					   
+					  
+					  
+					  <td height ="10px" width = "100px">     <label for="Employee Name" data-mini="true">Employee Name</label></td>
+                       
+							   
+                          <td>  <input type="text" name="empname" id="empname"  data-mini="true" /></td>
+						  
+						  
+					   
+					  
+					  
+					      <td height ="10px" width = "100px">  <label for="Workdate1" data-mini="true">Work     Date</label></td>
+							
+                            <td><input type="date" name="workdate" id="workdate" value="" data-mini="true" data-native-menu="true" data-role="datebox" data-options='{"mode":"calbox", "useNewStyle":true}'/></td>
+							</tr>
+						</table>
+	                  			  <table class="table2" >					   
+					  <tr>
+					  <td height ="10px" width = "100px">
+	                        <label for="starttime1">Start Time</label>
+							</td>
+						<td>
+	                        <input type="time" name="starttime" id="starttime" value="" data-role="datebox"  data-options='{"mode":"timebox", "useNewStyle":true}' />
+							</td>
+			          
+					   
+					        <td height ="10px" width = "100px">
+	                        <label for="endtime1" data-mini="true">End Time</label>
+							</td>
+							<td>
+	                        <input type="time" name="endtime"  id="endtime" value="" data-role="datebox"  data-mini="true" data-options='{"mode":"timebox", "useNewStyle":true}' />
+						</td>
+			          
+					  
+					  
+					  <td height ="10px" width = "100px">
+	                        <label for="mealstarttime1" data-mini="true" >Meal Start Time</label>
+					    </td>
+						<td>
+	                        <input type="time" name="mealstarttime" id="mealstarttime"  data-mini="true" value=""  data-role="datebox" data-options='{"mode":"timebox", "useNewStyle":true}' />
+			          </td>
+					  
+					  <td>
+	                        <label for="mealendtime1" data-mini="true">Meal End Time</label>
+							</td>
+	                       <td cellpadding="0" cellspacing="0" > <input type="time" name="mealendtime" data-mini="true" id="mealendtime" value=""  data-role="datebox" data-options='{"mode":"timebox", "useNewStyle":true}' />
+			          </td>
+					  <td width = "10px" >
+					  </td>
+					  </tr>
+					  </table>
+                 
+		 </div><!-- /page -->
+		
+		
+		
+			
+	</body>
+	</html>
+	
+	
+	
+	
+	
